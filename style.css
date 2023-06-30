@@ -1,0 +1,620 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    background-color: rgb(215, 109, 109);
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+}
+
+.header {
+    width: 800px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.set {
+    width: 175px;
+    height: 40px;
+    background-color: rgba(220, 215, 215, 0.381);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: all .4s ease-in;
+}
+
+.fa-sharp {
+    transition: transform .3s ease-in;
+}
+
+.set:hover {
+    background-color: rgba(220, 215, 215, 0.693);
+    color: gray;
+    cursor: pointer;
+}
+
+.set:hover .fa-sharp {
+    transform: rotate(-25deg);
+}
+
+.line {
+    width: 800px;
+    border: 1px solid black;
+}
+
+.main {
+    margin-top: 25px;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+}
+
+.time-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#time {
+    font-size: 7rem;
+}
+
+button {
+    width: 150px;
+    height: 80px;
+    border-radius: 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 1.5rem;
+    transition: background-color .3s ease-in;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#start:hover {
+    background-color: rgb(3, 104, 3);
+}
+
+#stop {
+    background-color: red;
+}
+
+#stop:hover {
+    background-color: rgb(206, 6, 6);
+}
+
+#reset {
+    background-color: grey;
+}
+
+#reset:hover {
+    background-color: rgb(101, 100, 100);
+}
+
+.task-container {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.tasks {
+    width: 500px;
+}
+
+.t-add {
+    margin-bottom: 3rem;
+    width: 100%;
+    height: 100px;
+    border: 1px dashed rgb(78, 64, 64);
+    color: rgb(159, 158, 158);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: rgb(184, 104, 104);
+    transition: all .3s ease-in;
+}
+
+.t-add:hover {
+    cursor: pointer;
+    border-color: whitesmoke;
+    color: whitesmoke;
+}
+
+.new-task {
+    width: 100%;
+    height: 150px;
+    background-color: antiquewhite;
+    padding: 0 10px;
+    position: relative;
+    margin: 20px 0 30px ;
+}
+
+.new-task.active {
+    padding: 0;
+    padding-left: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    color: coral;
+    justify-content: space-between;
+    position: relative;
+}
+
+.new-task-text {
+    overflow: hidden;
+}
+
+.new-task-text.active {
+    text-decoration: line-through;
+}
+
+.new-task-header {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-task-icons {
+    height: 100%;
+    width: 60px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.fa-check {
+    color: green;
+}
+
+.check-container {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+}
+
+.trash-container {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+}
+
+.fa-rotate-right {
+    color: cadetblue;
+}
+
+.check-container:hover {
+    border-radius: 50%;
+    background-color: burlywood;
+    cursor: pointer;
+}
+
+.trash-container:hover {
+    border-radius: 50%;
+    background-color: burlywood;
+    cursor: pointer;
+}
+
+
+.fa-trash-can {
+    color: red;
+}
+
+input {
+    width: 400px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: coral;
+    border: none;
+    border-bottom: 2px outset rgb(163, 161, 161);
+    background-color: antiquewhite;
+    outline: none;
+}
+
+.char-numbers {
+    color: grey;
+}
+
+.fa-xmark:hover {
+    cursor: pointer;
+}
+
+.new-task-footer {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#cancel, #save {
+    font-size: 1rem;
+    width: 70px;
+    height: 40px;
+}
+
+#cancel {
+    background-color: red;
+    margin-right: 10px;
+}
+
+.t-add.active {
+    height: 0;
+    visibility: hidden;
+}
+
+.finish {
+    width: 500px;
+    height: 90px;
+    background-color: coral;
+    border-radius: 15px;
+    border: none;
+    color: black;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.change-settings {
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    color: black;
+    z-index: 1;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all .4s ease-in;
+}
+
+.change-settings.active {
+    visibility: hidden;
+    top: -10%;
+}
+
+.container.active {
+    filter: blur(5px);
+}
+
+.set-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.set-line {
+    width: 95%;
+    border: 1px solid rgb(94, 93, 93);
+}
+
+.set-intervals {
+    margin-top: 20px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inter-div {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+select {
+    width: 60px;
+    height: 30px;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 10px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.pomodoro, .shortBreak, .longBreak {
+    background-color: transparent;
+}
+
+.pomodoro.active {
+    background-color: rgb(220, 57, 57);
+}
+
+.shortBreak.active {
+    background-color: rgb(220, 57, 57);
+}
+
+.longBreak.active {
+    background-color: rgb(220, 57, 57);
+}
+
+.steps {
+    font-size: 3rem;
+}
+
+.footer-container {
+    position: sticky;
+    background-color: antiquewhite;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+}
+
+.footer-container.active {
+    display: none;
+}
+
+.footer {
+    display: grid;
+    grid-column: 2 / 3;
+    text-align: justify;
+    font-size: 1rem;
+
+}
+
+.footer-title {
+    font-size: 2rem;
+    margin: 2rem 0 3rem;
+}
+
+.footer-text-1, .footer-text-2, .footer-text-3, .footer-text-4, .footer-text-5 {
+    margin-bottom: 2rem;
+}
+
+.footer-text-4-title, .footer-text-5-title, .footer-text-6-title {
+    margin-bottom: 1rem;
+}
+
+.footer-text-6 {
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 1024px) {
+    body {
+        font-size: 1rem;
+    }
+
+    .main{
+        width: 400px;
+        gap: 50px;
+    }
+
+    .header, .line {
+        width: 600px;
+    }
+
+    .header {
+        height: 40px;
+    }
+
+    .steps {
+        font-size: 3rem;
+    }
+
+    #time {
+        font-size: 5rem;
+    }
+
+    button {
+        width: 100px;
+        height: 55px;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    .tasks {
+        width: 400px;
+    }
+
+    .new-task {
+        height: 100px;
+    }
+
+    .t-add {
+        height: 80px;
+        margin-bottom: 1rem;
+    }
+
+    .set {
+        width: 140px;
+        height: 35px;
+    }
+
+    #save, #cancel {
+        width: 55px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    input {
+        width: 320px;
+        height: 35px;
+        font-size: 1rem;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 700px) {
+    .header, .line {
+        width: 400px;
+    }
+
+    .main{
+        width: 320px;
+        gap: 40px;
+    }
+
+    .steps {
+        font-size: 2rem;
+    }
+
+    #time {
+        font-size: 4rem;
+    }
+
+    .tasks {
+        width: 300px;
+    }
+
+    .t-add {
+        height: 60px;
+    }
+
+    input {
+        width: 250px;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .task-container {
+        width: 400px;
+    }
+
+    #save, #cancel {
+        width: 40px;
+        height: 25px;
+        font-size: 10px;
+    }   
+
+    .new-task {
+        height: 80px;
+    }
+
+    #cancel {
+        margin-right: 5px;
+    }
+
+    .char-numbers {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .change-settings {
+        width: 250px;
+    }
+
+    .header {
+        margin: 10px 0 10px;
+        width: 250px;
+    }
+
+    .set {
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+    }
+
+    .settings {
+        display: none;
+    }
+
+    .line {
+        width: 250px;
+    }
+
+    .main {
+        width: 300px;
+        gap: 20px;
+    }
+
+    button {
+        width: 80px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .steps {
+        font-size: 1.5rem;
+    }
+
+    #time {
+        font-size: 3rem;
+    }
+
+    .task-container {
+        width: 300px;
+    }
+
+    .new-task {
+        margin: 10px 0 15px;
+    }
+
+    .footer-title {
+        font-size: 18px;
+    }
+}

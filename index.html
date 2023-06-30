@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="change-settings active">
+        <div class="set-header">
+            <div class="set-title">Settings</div>
+            <i class="fa-sharp fa-solid fa-xmark"></i>
+        </div>
+        <div class="set-line"></div>
+        <div class="set-intervals">
+            <div class="inter-div">
+                <label for="focusTime">Focus time length</label>
+                <select name="focusTime" id="focusTime" onchange="updateFocus()">
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45" selected>45</option>
+                    <option value="50">50</option>
+                    <option value="55">55</option>
+                    <option value="60">60</option>
+                </select>
+            </div>
+            <div class="inter-div">
+                <label for="shortBreak">Short break time</label>
+                <select name="shortBreak" id="shortBreak" onchange="updateShort()">
+                    <option value="3">3</option>
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+
+                </select>
+            </div>
+            <div class="inter-div">
+                <label for="longBreak">Long break time</label>
+                <select name="longBreak" id="longBreak" onchange="updateLong()">
+                    <option value="5">5</option>
+                    <option value="10" selected>10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                </select>
+            </div>
+            <div class="inter-div">
+                <label for="longBreakIntervals">Long break intervals</label>
+                <select name="longBreakIntervals" id="longBreakIntervals" onchange="updateInterval()">
+                    <option value="3">3</option>
+                    <option value="4" selected>4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="header">
+            <div class="pomo">
+                <nav>
+                    <a href="#footer">Pomodoro Technique</a>
+                </nav>
+            </div>
+            <div class="set">
+                <i class="fa-sharp fa-solid fa-gear"></i>
+                <div class="settings">Settings</div>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="main">
+            <div class="time-container">
+                <div class="pom-buttons">
+                    <button class="pomodoro">Pomodoro</button>
+                    <button class="shortBreak">Short Break</button>
+                    <button class="longBreak">Long Break</button>
+                </div>
+                <div class="steps"></div>
+                <div id="time"></div>
+                <div class="buttons">
+                    <button id="start">START</button>
+                    <button id="stop">STOP</button>
+                    <button id="reset">RESET</button>
+                </div>
+            </div>
+            <div class="task-container">
+                <div class="t-header">Your tasks</div>
+                <div class="tasks">
+                    <div class="t-add"><i class="fa-solid fa-circle-plus"></i> Add new task</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-container active">
+            <div class="footer">
+                <div class="footer-title" id="footer">The Pomodoro Technique: Boosting Productivity with Time Management</div>
+                <div class="footer-text-1">In today's fast-paced world, staying focused and managing time effectively can be a daunting task. With countless distractions vying for our attention, it's no wonder that many people struggle to complete tasks efficiently. However, there is a simple yet powerful time management technique called the Pomodoro Technique that can help overcome these challenges and improve productivity. Let's delve into the details of this popular method and discover how it can transform the way you work.
+                </div>
+                <div class="footer-text-2">Developed by Francesco Cirillo in the late 1980s, the Pomodoro Technique derives its name from the Italian word for tomato. Cirillo named it after the tomato-shaped kitchen timer he used to track his time while studying. The concept is straightforward: break your work into intervals, typically 25 minutes in length, called "pomodoros," and separate them with short breaks.
+                </div>
+                <div class="footer-text-4">
+                    <div class="footer-text-4-title">Here's a step-by-step breakdown of how the Pomodoro Technique works:</div>
+                    <ol>
+                        <li>Set a Goal: Begin by identifying the task you want to accomplish. Whether it's writing an article, studying for an exam, or completing a project, having a clear objective is crucial.
+                        </li>
+                        <li>Set the Timer: Set a timer for 25 minutes, signaling the start of your first pomodoro. This designated time frame is known as one "pomodoro session."
+                        </li>
+                        <li>Work Intensely: During the pomodoro session, focus solely on the task at hand. Eliminate distractions and immerse yourself in the work. The idea is to work with laser-like concentration for the entire duration.
+                        </li>
+                        <li>Take a Short Break: Once the timer goes off, take a short break of around 5 minutes. Use this time to rest, stretch, or indulge in a quick non-work-related activity. It's essential to give your mind a breather before diving back into the next pomodoro session.
+                        </li>
+                        <li>Repeat the Cycle: After the break, reset the timer for another 25 minutes and continue the process. Each completed pomodoro represents one cycle. After completing four cycles, take a longer break of around 15 to 30 minutes.
+                        </li>
+                    </ol>
+                </div>
+                <div class="footer-text-5">
+                    <div class="footer-text-5-title">The Pomodoro Technique offers several benefits that contribute to increased productivity:
+                    </div>
+                    <ol>
+                        <li>Time Management: By breaking work into manageable intervals, the Pomodoro Technique helps you allocate time effectively and prevents procrastination. The clear structure helps you stay on track and prioritize tasks.
+                        </li>
+                        <li>Enhanced Focus: With a defined time frame, you're encouraged to concentrate on the task without distractions. Knowing that a break is coming after 25 minutes creates a sense of urgency, keeping you motivated and focused.
+                        </li>
+                        <li>Avoiding Burnout: Regular breaks throughout the day prevent burnout and maintain mental stamina. Short breaks allow your mind to recharge, improving cognitive performance and preventing mental fatigue.
+                        </li>
+                        <li>Tracking Progress: The Pomodoro Technique helps you monitor and analyze your productivity. By keeping a record of completed pomodoros, you can evaluate your work patterns, identify time-consuming tasks, and make necessary adjustments to improve efficiency.
+                        </li>
+                        <li>Overcoming Perfectionism: Breaking work into time-limited intervals can help overcome perfectionism tendencies. Since the focus is on completing tasks within the given time frame, you're encouraged to prioritize progress over achieving absolute perfection.
+                        </li>
+                    </ol>
+                </div>
+                <div class="footer-text-6">
+                    <div class="footer-text-6-title">To make the most of the Pomodoro Technique, consider these additional tips:</div>
+                    <ul>
+                        <li>Choose an appropriate timer: While traditional kitchen timers, alarm clocks or just our website work perfectly fine
+                        </li>
+                        <li>Customize pomodoro durations: Although the standard pomodoro duration is 25 minutes, you can adjust it based on your preferences and task requirements. Experiment with shorter or longer intervals to find what works best for you.
+                        </li>
+                        <li>Adapt to your workflow: The Pom</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="edit.js"></script>
+</body>
+</html>
